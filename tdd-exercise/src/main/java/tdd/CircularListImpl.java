@@ -1,7 +1,8 @@
 package tdd;
 
 import java.util.ArrayList;
-import java.util.Optional;
+import java.util.Iterator;
+
 
 public class CircularListImpl implements CircularList{
     private ArrayList<Integer> circularList;
@@ -27,17 +28,18 @@ public class CircularListImpl implements CircularList{
     }
 
     @Override
-    public Integer forwardIterator() {
-        Integer i = circularList.get(index);
-        index++;
-        return i;
+    public Iterator<Integer> forwardIterator() {
+        Iterator<Integer> i = circularList.iterator();
+        return i;      
     }
 
     @Override
-    public Optional<Integer> backwardIterator() {
-        // TODO Auto-generated method stub
-        return Optional.empty();
+    public Iterator<Integer> backwardIterator() {
+        Iterator<Integer> i = circularList.iterator();
+        return i;
     }
+
+    
 
     @Override
     public void reset() {

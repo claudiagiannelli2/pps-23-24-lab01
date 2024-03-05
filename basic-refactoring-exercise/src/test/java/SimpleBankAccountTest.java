@@ -3,23 +3,22 @@ import example.model.BankAccount;
 import example.model.SimpleBankAccount;
 
 import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
+
 
 /**
  * The test suite for testing the SimpleBankAccount implementation
  */
-class SimpleBankAccountTest {
+class SimpleBankAccountTest extends AbstractBankAccountTest {
 
-    private AccountHolder accountHolder;
-    private BankAccount bankAccount;
+    
+   @Override
+   protected BankAccount createBankAccountToTest(AccountHolder accountHolder) {
+        
+        super.setFee(0);
+        return new SimpleBankAccount(accountHolder, 0);
+   }
 
-    @BeforeEach
-    void beforeEach(){
-        accountHolder = new AccountHolder("Mario", "Rossi", 1);
-        bankAccount = new SimpleBankAccount(accountHolder, 0);
-    }
-
-    @Test
+   /* @Test
     void testInitialBalance() {
         assertEquals(0, bankAccount.getBalance());
     }
@@ -49,5 +48,5 @@ class SimpleBankAccountTest {
         bankAccount.deposit(accountHolder.getId(), 100);
         bankAccount.withdraw(2, 70);
         assertEquals(100, bankAccount.getBalance());
-    }
+    }*/
 }

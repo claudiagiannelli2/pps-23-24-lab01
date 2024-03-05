@@ -9,10 +9,14 @@ public class SimpleBankAccountWithAtm extends SimpleBankAccount {
 
     public SimpleBankAccountWithAtm(final AccountHolder holder, final double balance) {
         super(holder, balance);
+        setFee();
+    }
+    protected void setFee() {
+        super.setFee(1);
     }
    
 
-    @Override
+   /*  @Override
     public void deposit(final int userID, final double amount) {
         if (super.checkUser(userID)) {
             var balance = super.getBalance();
@@ -30,9 +34,7 @@ public class SimpleBankAccountWithAtm extends SimpleBankAccount {
 
     private boolean isWithdrawAllowed(final double amount){
         return super.getBalance() >= amount;
-    }
-
-    
+    }*/    
 
    
 }
